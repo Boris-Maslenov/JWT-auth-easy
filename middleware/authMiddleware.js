@@ -11,8 +11,8 @@ module.exports = function(req, res, next){
         if(!token) {
             return res.status(403).json({message: 'Ошибка доступа: пользователь не авторизован'});
         }
-        const decodedData = jwt.verify(token, secret);
-        req.user = decodedData;
+        const decodedData = jwt.verify(token, secret); // {id, roles}
+        req.user = decodedData; // изменить объект запроса чтобы использовать инфу в других функцуиях
         next();
     } catch(e) {
         console.log(e);

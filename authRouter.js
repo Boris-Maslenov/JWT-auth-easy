@@ -10,6 +10,6 @@ router.post('/registration', [
     check('password', 'Пароль должен быть длинне 4 и меньше 10 символов').isLength({min: 4, max: 10})
  ], registration); // auth/registration
 router.post('/login', login); // auth/login
-router.get('/users', roleMiddleware(['USER', 'ADMIN']), getUsers); // auth/users
+router.get('/users', roleMiddleware(['ADMIN']), getUsers); // auth/users
 
 module.exports = router;
